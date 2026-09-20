@@ -1,0 +1,30 @@
+# ===== KAMPUNG INGGRIS KARAWACI II =====
+
+# Halaman utama default
+DirectoryIndex index.php
+
+# Jangan tampilkan daftar isi folder
+Options -Indexes
+
+# Set charset default untuk semua file
+AddDefaultCharset UTF-8
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Aktifkan akses langsung ke file asli di folder public/
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Semua permintaan selain file asli diarahkan ke index.php
+RewriteRule ^ index.php [L]
+</IfModule>
+
+# Blokir akses langsung ke file konfigurasi/model internal
+<FilesMatch "^(config\.php|Database\.php|Bootstrap\.php|Pendaftaran\.php|PendaftaranController\.php)$">
+    Require all denied
+</FilesMatch>
+
+# Cegah akses langsung ke folder app/
+RedirectMatch 403 ^/app/
