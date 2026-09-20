@@ -1,0 +1,12 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/app/:path*", "destination": "/404", "statusCode": 404 },
+    { "source": "/config/:path*", "destination": "/404", "statusCode": 404 },
+    { "source": "/controllers/:path*", "destination": "/404", "statusCode": 404 },
+    { "source": "/models/:path*", "destination": "/404", "statusCode": 404 },
+    { "source": "/views/:path*", "destination": "/404", "statusCode": 404 },
+    { "source": "/assets/:path*", "destination": "/404", "statusCode": 404 }
+  ]
+}
